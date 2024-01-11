@@ -1,91 +1,97 @@
-# <img src="https://intranet.hbtn.io/assets/holberton-logo-default-27055cb2f875eb10bf3b3942e52a24581bc0667695bdc856d4f08b469b678000.png" width="30"> AirBnB Clone V.4 - Web dynamic
+0x06. AirBnB clone - Web dynamic
 
-## Synopsis
-This is the 4th version of our AirBnB clone project. We will be using python3, RESTful API, MySQL, Flask, and jQuery AJAX
+Tasks
+0. Last clone!
+mandatory
+A new codebase again? Yes!
 
-<p><img src="https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step5.png" alt="step2"></p>
+For this project you will fork this codebase:
 
-## Table of Contents
-* [Environment](#environment)
-* [Installation](#installation)
-* [File Descriptions](#file-descriptions)
-* [Usage](#usage)
-* [Examples of use](#examples-of-use)
-* [Bugs](#bugs)
-* [Authors](#authors)
-* [License](#license)
+Update the repository name to AirBnB_clone_v4
+Update the README.md:
+Add yourself as an author of the project
+Add new information about your new contribution
+Make it better!
+If you’re the owner of this codebase, create a new repository called AirBnB_clone_v4 and copy over all files from AirBnB_clone_v3
+If you didn’t install Flasgger from the previous project, it’s time! sudo pip3 install flasgger
+1. Cash only
+mandatory
+Write a script that starts a Flask web application:
 
-## Environment
-This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3), jQuery (version 3.x), MySQL (version 5.7), Flask, and Chrome (version 57.0)
+Based on web_flask, copy: web_flask/static, web_flask/templates/100-hbnb.html, web_flask/__init__.py and web_flask/100-hbnb.py into the web_dynamic folder
+Rename 100-hbnb.py to 0-hbnb.py
+Rename 100-hbnb.html to 0-hbnb.html
+Update 0-hbnb.py to replace the existing route to /0-hbnb/
+2. Select some Amenities to be comfortable!
+mandatory
+For the moment the filters section is static, let’s make it dynamic!
 
-## Installation
-** UNDER CONSTRUCTION **
+Replace the route 0-hbnb with 1-hbnb in the file 1-hbnb.py (based on 0-hbnb.py)
 
-## File Structure
-- **[api](api)** directory contains Flask web applications for a RESTful API
-- **[models](models)** directory contains all classes used for this project:
-- **[tests](tests)** directory contains all unit test cases for this project.
-- **[web_dynamic](web_dynamic)** directory contains all files necessary to start a dynamic Flask web application.
-- **[web_flask](web_flask)** directory contains all files necessary to start a Flask web application.
-- **[web_static](web_static)** directory contains all html, css and images used for the static website.
-- [0-setup_web_static.sh](0-setup_web_static.sh) - bash script that sets up web servers for the deployment of `web_static`
-- [1-pack_web_static.py](1-pack_web_static.py) - Fabric script that generates a .tgz archive from the contents of `web_static`, using the function `do_pack`
-- [2-do_deploy_web_static.py](2-do_deploy_web_static.py) - Fabric script (based on [1-pack_web_static.py](1-pack_web_static.py)) that distributes an archive to web servers, using the function `do_deploy`
-- [3-deploy_web_static.py](3-deploy_web_static.py) - Fabric script (based on [2-do_deploy_web_static.py](2-do_deploy_web_static.py)) that creates and distributes an archive to web servers, using the function `deploy`
-- [AUTHORS](AUTHORS) - list of Authors who have worked on this project.
-- [console.py](console.py) - the console is a command line used to interact with the storage engines. 
-- [setup_mysql_dev.sql](setup_mysql_dev.sql) - MySQL script to set-up the hbnb_dev_db database.
-- [setup_mysql_test.sql](setup_mysql_test.sql) - MySQL script to set-up the hbnb_test_db database.
+Create a new template 1-hbnb.html (based on 0-hbnb.html) and update it:
+3. API status
+mandatory
+Before requesting the HBNB API, it’s better to know the status of this one.
 
-## Examples of Use
-** UNDER CONSTRUCTION **
-### Console Example:
-```
-vagrantAirBnB_clone$./console.py
-(hbnb) help
+Update the API entry point (api/v1/app.py) by replacing the current CORS CORS(app, origins="0.0.0.0") by CORS(app, resources={r"/api/v1/*": {"origins": "*"}}).
 
-Documented commands (type help <topic>):
-========================================
-EOF  all  create  destroy  help  quit  show  update
+Change the route 1-hbnb to 2-hbnb in the file 2-hbnb.py (based on 1-hbnb.py)
 
-(hbnb) all MyModel
-** class doesn't exist **
-(hbnb) create BaseModel
-7da56403-cc45-4f1c-ad32-bfafeb2bb050
-(hbnb) all BaseModel
-[[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}]
-(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}
-(hbnb) destroy BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-** no instance found **
-(hbnb) quit
-```
+Create a new template 2-hbnb.html (based on 1-hbnb.html) and update it:
+4. Fetch places
+mandatory
+Replace the route 2-hbnb with 3-hbnb in the file 3-hbnb.py (based on 2-hbnb.py)
 
-## Bugs
-No known bugs at this time.
+Create a new template 3-hbnb.html (based on 2-hbnb.html) and update it:
 
-## Authors
+Import the JavaScript static/scripts/3-hbnb.js
+5. Filter places by Amenity
+mandatory
+Replace the route 3-hbnb with 4-hbnb in the file 4-hbnb.py (based on 3-hbnb.py)
 
-###### Version 4
+Create a new template 4-hbnb.html (based on 3-hbnb.html) and update it:
 
-- Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-- Thomas Wang - [Github](https://github.com/thomaspwang) / [Twitter](https://twitter.com/thpwang)
+Import the JavaScript
+6. States and Cities
+#advanced
+Now, reproduce the same steps with the State and City filter:
 
-###### Version 3
+Replace the route 4-hbnb to 100-hbnb in the file 100-hbnb.py (based on 4-hbnb.py)
 
-- Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-- Felicia Hsieh - [Github](https://github.com/feliciahsieh) / [Twitter](https://twitter.com/feliciahsiehsw)
+Create a new template 100-hbnb.html (based on 4-hbnb.html) and update it:
 
-###### Version 2
+Import the JavaScript static/scripts/100-hbnb.js in the <head> tag (instead of 4-hbnb.js)
+Add to all li tags of each state a new tag: <input type="checkbox">
+Add to all li tags of each cities a new tag: <input type="checkbox">
+The new checkbox must be at 10px on the left of the State or City name
+Add to all input tags of each states (<li> tag) the attribute data-id=":state_id"
+Add to all input tags of each states (<li> tag) the attribute data-name=":state_name"
+Add to all input tags of each cities (<li> tag) the attribute data-id=":city_id"
+Add to all input tags of each cities (<li> tag) the attribute data-name=":city_name"
+Write a JavaScript script (static/scripts/100-hbnb.js):
 
-- Andrew Birnberg - [Github](https://github.com/birnbera) / [Twitter](https://twitter.com/birnbera)
-- Thomas Wang - [Github](https://github.com/thomaspwang) / [Twitter](https://twitter.com/thpwang)
+Based on 4-hbnb.js
+Listen to changes on each input checkbox tag:
+if the checkbox is checked, you must store the State or City ID in a variable (dictionary or list)
+if the checkbox is unchecked, you must remove the State or City ID from the variable
+update the h4 tag inside the div Locations with the list of States or Cities checked
+When the button tag is clicked, a new POST request to places_search should be made with the list of Amenities, Cities and States checked
+7. Reviews
+#advanced
+Let’s add a new feature: show and hide reviews!
 
-###### Version 1
+Replace the route 100-hbnb to 101-hbnb in the file 101-hbnb.py (based on 100-hbnb.py)
 
-- Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-- Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
+Create a new template 101-hbnb.html (based on 100-hbnb.html) and update it:
 
-## License
-Public Domain. No copywrite protection.
+Import the JavaScript static/scripts/101-hbnb.js in the <head> tag (instead of 101-hbnb.js)
+Design the list of reviews from this task
+Add a span element at the right of the H2 “Reviews” with value “show” (add all necessary attributes to do this feature)
+Write a JavaScript script (static/scripts/101-hbnb.js):
+
+Based on 100-hbnb.js
+When the span next to the Reviews h2 is clicked by the user:
+Fetch, parse, display reviews and change the text to “hide”
+If the text is “hide”: remove all Review elements from the DOM
+This button should work like a toggle to fetch/display and hide reviews
+
